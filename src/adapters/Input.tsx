@@ -1,9 +1,7 @@
 import * as React from "react";
 import { cn } from "../utils/cn";
-// Example—replace with your kit import:
-import { Input as TPInput } from "@tailwindplus/ui"
 
-type Props = React.ComponentProps<typeof TPInput> & {
+type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   size?: "sm" | "md" | "lg";
 };
 
@@ -17,11 +15,11 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(function Input(
     lg: "h-12 px-4 text-base"
   } as const;
   return (
-    <TPInput
+    <input
       ref={ref}
       className={cn(
         "w-full rounded-md bg-white/50 dark:bg-white/5 border border-black/10 focus:ring-2 focus:ring-brand-500 focus:outline-none",
-        sizes[size],
+        sizes[size as keyof typeof sizes],
         className
       )}
       {...props}

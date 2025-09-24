@@ -5,11 +5,11 @@ import "./app.css"
 import DocumentsPage from "./pages/documents/index"
 import DocumentDetailPage from "./pages/documents/[id]"
 import PaymentsPage from "./pages/payments/index"
+import ThemeToggle from "./components/ThemeToggle"
 
 const router = createBrowserRouter([
   { path: "/", element: <DocumentsPage /> },
   { path: "/documents", element: <DocumentsPage /> },
-  // In a real app, you'd read :id via useParams and pass to DocumentDetailPage
   { path: "/documents/:id", element: <DocumentDetailPage /> },
   { path: "/payments", element: <PaymentsPage /> },
 ])
@@ -17,5 +17,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ThemeToggle />
   </React.StrictMode>
 )

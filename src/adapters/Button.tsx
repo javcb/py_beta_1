@@ -1,9 +1,7 @@
 import * as React from "react"
 import { cn } from "../utils/cn"
-// Example—replace with your kit import:
-import { Button as TPButton } from "@tailwindplus/ui"
 
-type Props = React.ComponentProps<typeof TPButton> & {
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   intent?: "solid" | "outline" | "ghost"
   size?: "sm" | "md" | "lg"
 }
@@ -16,5 +14,15 @@ export function Button({ intent="solid", size="md", className, ...rest }: Props)
   }[intent]
   const sizeClass = { sm: "h-8 px-3 text-sm", md: "h-10 px-4", lg: "h-12 px-5" }[size]
 
-  return <TPButton className={cn(intentClass, sizeClass, className)} {...rest} />
+  return (
+    <button
+      className={cn(
+        "inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50",
+        intentClass,
+        sizeClass,
+        className
+      )}
+      {...rest}
+    />
+  )
 }

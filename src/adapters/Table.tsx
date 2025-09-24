@@ -1,6 +1,4 @@
 import * as React from "react";
-// Example—replace with your kit import:
-import { DataTable as TPDataTable } from "@tailwindplus/ui"
 
 type Column<T> = {
   key: keyof T;
@@ -16,24 +14,37 @@ type Props<T> = {
   onRowClick?: (row: T) => void;
 };
 
-export function Table<T extends Record<string, any>>({ columns, data, empty, onRowClick, ...rest }: Props<T> & React.ComponentProps<typeof TPDataTable>) {
+export function Table<T extends Record<string, any>>({ columns, data, empty, onRowClick }: Props<T>) {
   if (!data.length) return <div className="p-6 text-center text-text-secondary">{empty ?? "No data."}</div>;
   
-  // Convert our column format to kit's expected format
-  const kitColumns = columns.map(col => ({
-    key: String(col.key),
-    title: col.header,
-    width: col.width,
-    render: col.render
-  }));
-
   return (
-    <TPDataTable
-      columns={kitColumns}
-      data={data}
-      onRowClick={onRowClick}
-      className="overflow-x-auto"
-      {...rest}
-    />
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <thead className="text-left text-text-secondary">
+          <tr>
+            {columns.map((c) => (
+              <th key={String(c.key)} className="px-4 py-2 border-b border-black/5" style={{ width: c.width }}>
+                {c.header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row, i) => (
+            <tr
+              key={i}
+              className="hover:bg-bg-muted/60 cursor-pointer"
+              onClick={() => onRowClick?.(row)}
+            >
+              {columns.map((c) => (
+                <td key={String(c.key)} className="px-4 py-3 border-b border-black/5">
+                  {c.render ? c.render(row[c.key], row) : String(row[c.key] ?? "")}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
