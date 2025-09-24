@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-. "$(dirname "$0")/_/husky.sh"
 
 PROTECTED='^src/plus/'
 CHANGED=$(git diff --cached --name-only | tr -d '\r' | grep -E "$PROTECTED" || true)
