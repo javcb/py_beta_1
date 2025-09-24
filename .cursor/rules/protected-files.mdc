@@ -1,0 +1,11 @@
+---
+description: Guard Tailwind Plus files; require explicit approval for edits.
+globs:
+  - "src/plus/**"
+---
+
+# Protection rules
+- Never modify files matching these globs unless the user explicitly writes: ALLOW PROTECTED EDITS.
+- If a change requires touching a protected file, STOP and propose a plan listing exact paths and diffs.
+- Do not rename or move protected files.
+- Prefer additive work elsewhere; then ask to proceed.

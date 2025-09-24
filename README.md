@@ -59,3 +59,27 @@ We expose semantic CSS variables that map to Tailwind Plus variables. Update the
 
 - Anything you like inside `src/adapters` can be moved into `packages/ui-library/components`.
 - Keep page code importing **your adapters**, not the kit directly.
+
+## Protected Tailwind Plus files
+
+All Tailwind Plus templates/blocks live in `src/plus/` and are protected:
+- Cursor rules block edits unless you explicitly state **ALLOW PROTECTED EDITS** in your request.
+- A Git pre-commit hook blocks commits that touch `src/plus/**` unless you set an override env var.
+- PRs that modify this folder require a CODEOWNER review.
+
+**Override for a single commit**
+
+macOS/Linux:
+```bash
+ALLOW_PROTECTED_EDITS=1 git commit -m "intentional change in src/plus"
+```
+
+Windows (PowerShell):
+```powershell
+$env:ALLOW_PROTECTED_EDITS=1; git commit -m "intentional change in src/plus"
+```
+
+Windows (Command Prompt):
+```cmd
+set ALLOW_PROTECTED_EDITS=1 && git commit -m "intentional change in src/plus"
+```

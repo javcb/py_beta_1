@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+PROTECTED='^src/plus/'
+CHANGED=$(git diff --cached --name-only | tr -d '\r' | grep -E "$PROTECTED" || true)
+
+if [ -n "$CHANGED" ] && [ -z "$ALLOW_PROTECTED_EDITS" ]; then
+  echo "⛔ Protected files changed (blocked by pre-commit):"
+  echo "$CHANGED" | sed 's/^/ - /'
+  echo "Set ALLOW_PROTECTED_EDITS=1 to override for this commit."
+  exit 1
+fi
+
+# Run lint-staged if configured; don't fail the whole commit if empty
+npx lint-staged || true
