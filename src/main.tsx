@@ -10,6 +10,12 @@ import DashboardPage from "./pages/dashboard/index"
 import PropertiesPage from "./pages/properties/index"
 import PropertyDetailPage from "./pages/properties/[id]"
 import DocumentCenterPage from "./pages/document-center/index"
+import TenantDashboardPage from "./pages/tenant/dashboard/index"
+import TenantPaymentsPage from "./pages/tenant/payments/index"
+import TenantTransactionsPage from "./pages/tenant/transactions/index"
+import TenantDocumentsPage from "./pages/tenant/documents/index"
+import TenantMaintenancePage from "./pages/tenant/maintenance/index"
+import TenantVehiclesPage from "./pages/tenant/vehicles/index"
 import ThemeToggle from "./components/ThemeToggle"
 
 const router = createBrowserRouter([
@@ -25,6 +31,12 @@ const router = createBrowserRouter([
       { path: "/properties", element: <PropertiesPage /> },
       { path: "/properties/:id", element: <PropertyDetailPage /> },
       { path: "/document-center", element: <DocumentCenterPage /> },
+      { path: "/tenant/dashboard", element: <TenantDashboardPage /> },
+      { path: "/tenant/payments", element: <TenantPaymentsPage /> },
+      { path: "/tenant/transactions", element: <TenantTransactionsPage /> },
+      { path: "/tenant/documents", element: <TenantDocumentsPage /> },
+      { path: "/tenant/maintenance", element: <TenantMaintenancePage /> },
+      { path: "/tenant/vehicles", element: <TenantVehiclesPage /> },
     ]
   },
 ])
