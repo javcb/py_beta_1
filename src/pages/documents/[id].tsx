@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getDocumentById, type Document } from "../../mock/documents";
-import { Navigation } from "../../components/Navigation";
+import * as React from "react"
+import { useParams } from "react-router-dom"
+import { getDocumentById } from "../../mock/documents"
+import { Navigation } from "../../components/Navigation"
 
 export default function DocumentDetailPage() {
-  const { id } = useParams<{ id: string }>();
-  const [doc, setDoc] = useState<Document | null>(null);
-
-  useEffect(() => {
-    if (!id) return;
-    setDoc(getDocumentById(id) ?? null);
-  }, [id]);
-
+  const { id } = useParams<{ id: string }>()
+  const doc = id ? getDocumentById(id) : null
+  
   if (!id) return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -19,17 +14,17 @@ export default function DocumentDetailPage() {
         <div className="p-6 text-text-secondary">No id provided.</div>
       </main>
     </div>
-  );
+  )
   
   if (!doc) return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="p-6 text-text-secondary">Loading…</div>
+        <div className="p-6 text-text-secondary">Document not found.</div>
       </main>
     </div>
-  );
-
+  )
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -42,5 +37,5 @@ export default function DocumentDetailPage() {
         </div>
       </main>
     </div>
-  );
+  )
 }

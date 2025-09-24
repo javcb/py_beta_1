@@ -1,0 +1,207 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "component": "Home",
+      "file": "./src/App.tsx",
+      "role": "public",
+      "features": ["authentication", "role-based-redirect"]
+    },
+    {
+      "path": "/login",
+      "component": "LoginPage",
+      "file": "./src/pages/Login.tsx",
+      "role": "public",
+      "features": ["authentication", "sign-in-form"]
+    },
+    {
+      "path": "/register",
+      "component": "Register",
+      "file": "./src/pages/Register.tsx",
+      "role": "public",
+      "features": ["authentication", "sign-up-form"]
+    },
+    {
+      "path": "/dashboard",
+      "component": "FigmaDashboard",
+      "file": "./src/pages/dashboard/FigmaDashboard.tsx",
+      "role": "landlord",
+      "features": ["dashboard", "kpi-tiles", "summary-cards", "quick-actions"]
+    },
+    {
+      "path": "/properties",
+      "component": "Properties",
+      "file": "./src/pages/properties/Properties.tsx",
+      "role": "landlord",
+      "features": ["property-list", "property-cards", "search-filter"]
+    },
+    {
+      "path": "/properties/:id",
+      "component": "PropertyDetail",
+      "file": "./src/pages/properties/PropertyDetail.tsx",
+      "role": "landlord",
+      "features": ["property-details", "property-metrics", "tenant-info"]
+    },
+    {
+      "path": "/properties/:id/manage",
+      "component": "PropertyManage",
+      "file": "./src/pages/properties/PropertyManage.tsx",
+      "role": "landlord",
+      "features": ["property-management", "settings", "maintenance"]
+    },
+    {
+      "path": "/payments",
+      "component": "Payments",
+      "file": "./src/pages/payments/Payments.tsx",
+      "role": "landlord",
+      "features": ["payment-list", "payment-methods", "export", "filters"]
+    },
+    {
+      "path": "/document-center",
+      "component": "DocumentCenter",
+      "file": "./src/pages/document-center/DocumentCenter.tsx",
+      "role": "landlord",
+      "features": ["document-management", "upload", "viewer", "pinned-content"]
+    },
+    {
+      "path": "/maintenance",
+      "component": "Maintenance",
+      "file": "./src/pages/maintenance/Maintenance.tsx",
+      "role": "landlord",
+      "features": ["maintenance-requests", "work-orders", "contractor-management"]
+    },
+    {
+      "path": "/analytics",
+      "component": "Analytics",
+      "file": "./src/pages/analytics/Analytics.tsx",
+      "role": "landlord",
+      "features": ["financial-analytics", "charts", "reports"]
+    },
+    {
+      "path": "/transactions",
+      "component": "Transactions",
+      "file": "./src/pages/transactions/NewTransactions.tsx",
+      "role": "landlord",
+      "features": ["transaction-list", "filters", "export"]
+    },
+    {
+      "path": "/tenant/dashboard",
+      "component": "TenantDashboard",
+      "file": "./src/pages/tenant/TenantDashboard.tsx",
+      "role": "tenant",
+      "features": ["tenant-dashboard", "payment-overview", "maintenance-requests"]
+    },
+    {
+      "path": "/tenant/payments",
+      "component": "TenantPayments",
+      "file": "./src/pages/tenant/TenantPayments.tsx",
+      "role": "tenant",
+      "features": ["payment-history", "payment-methods", "autopay", "payment-wizard"]
+    },
+    {
+      "path": "/tenant/documents",
+      "component": "TenantDocuments",
+      "file": "./src/pages/tenant/TenantDocuments.tsx",
+      "role": "tenant",
+      "features": ["document-viewer", "upload", "lease-parser", "document-categories"]
+    },
+    {
+      "path": "/tenant/maintenance",
+      "component": "TenantMaintenance",
+      "file": "./src/pages/tenant/TenantMaintenance.tsx",
+      "role": "tenant",
+      "features": ["maintenance-requests", "photo-upload", "status-tracking"]
+    },
+    {
+      "path": "/tenant/transactions",
+      "component": "TenantTransactions",
+      "file": "./src/pages/tenant/TenantTransactions.tsx",
+      "role": "tenant",
+      "features": ["transaction-history", "payment-receipts"]
+    },
+    {
+      "path": "/tenant/vehicles",
+      "component": "TenantVehicles",
+      "file": "./src/pages/tenant/TenantVehicles.tsx",
+      "role": "tenant",
+      "features": ["vehicle-registration", "parking-requests"]
+    },
+    {
+      "path": "/contractor/dashboard",
+      "component": "ContractorDashboard",
+      "file": "./src/pages/contractor/ContractorDashboard.tsx",
+      "role": "contractor",
+      "features": ["contractor-dashboard", "job-overview", "earnings"]
+    },
+    {
+      "path": "/contractor/jobs",
+      "component": "AvailableJobs",
+      "file": "./src/pages/contractor/AvailableJobs.tsx",
+      "role": "contractor",
+      "features": ["job-search", "job-application", "skill-matching"]
+    },
+    {
+      "path": "/contractor/my-jobs",
+      "component": "ContractorJobs",
+      "file": "./src/pages/contractor/ContractorJobs.tsx",
+      "role": "contractor",
+      "features": ["active-jobs", "job-progress", "completion-reports"]
+    },
+    {
+      "path": "/contractor/earnings",
+      "component": "ContractorEarnings",
+      "file": "./src/pages/contractor/ContractorEarnings.tsx",
+      "role": "contractor",
+      "features": ["earnings-summary", "payment-history", "payout-settings"]
+    },
+    {
+      "path": "/landlord/onboard",
+      "component": "TenantOnboarding",
+      "file": "./src/pages/landlord/TenantOnboarding.tsx",
+      "role": "landlord",
+      "features": ["tenant-onboarding", "screening", "lease-setup"]
+    },
+    {
+      "path": "/landlord/vehicles",
+      "component": "LandlordVehicles",
+      "file": "./src/pages/landlord/LandlordVehicles.tsx",
+      "role": "landlord",
+      "features": ["vehicle-management", "parking-assignment"]
+    },
+    {
+      "path": "/profile",
+      "component": "ProfilePage",
+      "file": "./src/pages/profile/ProfilePage.tsx",
+      "role": "all",
+      "features": ["user-profile", "settings", "preferences"]
+    },
+    {
+      "path": "/settings",
+      "component": "SettingsPage",
+      "file": "./src/pages/settings/SettingsPage.tsx",
+      "role": "all",
+      "features": ["app-settings", "notifications", "security"]
+    },
+    {
+      "path": "/support",
+      "component": "SupportPage",
+      "file": "./src/pages/support/SupportPage.tsx",
+      "role": "all",
+      "features": ["help-center", "contact-support", "faq"]
+    },
+    {
+      "path": "/financial-setup",
+      "component": "SimpleFinancialSetup",
+      "file": "./src/pages/SimpleFinancialSetup.tsx",
+      "role": "landlord",
+      "features": ["stripe-setup", "plaid-integration", "bank-accounts"]
+    },
+    {
+      "path": "/design-library",
+      "component": "DesignLibrary",
+      "file": "./src/pages/design-library/DesignLibrary.tsx",
+      "role": "all",
+      "features": ["component-showcase", "design-tokens", "style-guide"]
+    }
+  ]
+}
