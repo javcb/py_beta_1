@@ -28,6 +28,7 @@ const landlordNavItems = [
   { path: '/maintenance', label: 'Maintenance', icon: Wrench },
   { path: '/analytics', label: 'Analytics', icon: BarChart3 },
   { path: '/transactions', label: 'Transactions', icon: Receipt },
+  { path: '/styleguide', label: 'Styleguide', icon: Settings },
 ]
 
 const tenantNavItems = [

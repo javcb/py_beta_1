@@ -4,6 +4,7 @@ const config: Config = {
   content: [
     "./index.html",
     "./src/**/*.{ts,tsx,js,jsx,html}",
+    "./src/vendor/tailwindplus/**/*.{ts,tsx,js,jsx,css}",
     // Include any future kit files so purge doesn't strip classes:
     "./node_modules/**/tailwindplus*/**/*.{js,ts,tsx}",
     "./node_modules/**/tailwind-plus*/**/*.{js,ts,tsx}",
