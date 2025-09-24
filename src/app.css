@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import your Tailwind Plus kit base if provided */
+@layer base {
+  /* Example (replace):
+  @import "tailwind-plus/base.css";
+  */
+}
+
+/* Token bridge: map your semantics to the kit variables */
+:root {
+  /* Replace these RIGHT side vars with kit names */
+  --color-bg-surface: var(--tp-surface, #ffffff);
+  --color-bg-muted: var(--tp-surface-muted, #f6f7f9);
+  --color-text-primary: var(--tp-text, #0b0f19);
+  --color-text-secondary: var(--tp-text-muted, #475569);
+  --color-brand-500: var(--tp-primary-500, #5865F2);
+  --radius-md: var(--tp-radius-md, 0.5rem);
+  --radius-lg: var(--tp-radius-lg, 0.75rem);
+}
+
+[data-theme="dark"] {
+  --color-bg-surface: var(--tp-surface-dark, #0b0f19);
+  --color-bg-muted: var(--tp-surface-muted-dark, #0f172a);
+  --color-text-primary: var(--tp-text-dark, #e5e7eb);
+  --color-text-secondary: var(--tp-text-muted-dark, #cbd5e1);
+}
+
+/* Base resets that rely on tokens */
+@layer base {
+  html, body, #__next, #root {
+    height: 100%;
+  }
+  body {
+    color: var(--color-text-primary);
+    background: var(--color-bg-surface);
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-lg shadow-card bg-bg-surface;
+  }
+  .card-header {
+    @apply px-4 py-3 border-b border-black/5 text-sm font-medium text-text-secondary;
+  }
+  .card-body {
+    @apply p-4;
+  }
+}
