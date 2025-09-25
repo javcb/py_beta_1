@@ -1,16 +1,17 @@
 #!/usr/bin/env sh
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
+# Toggle sentinel
 if [ -f "$REPO_ROOT/.guardrails/disabled" ]; then
   echo "⚠️  Guardrails disabled via .guardrails/disabled — skipping protected-file checks."
   exit 0
 fi
 
-PROTECTED='^(src/vendor/|packages/ui/src/tokens/|packages/ui/src/adapters/|packages/ui/src/index\.ts)'
-CHANGED=$(git diff --cached --name-only | tr -d '\r' | grep -E "$PROTECTED" || true)
-
+# Block edits to protected paths unless ALLOW_PROTECTED_EDITS=1
+PROTECTED='^src/vendor/|^packages/ui/src/tokens/|^packages/ui/src/adapters/|^packages/ui/src/index\.ts$'
+CHANGED="$(git diff --cached --name-only | tr -d '\r' | grep -E "$PROTECTED" || true)"
 if [ -n "$CHANGED" ] && [ -z "$ALLOW_PROTECTED_EDITS" ]; then
-  echo "⛔ Protected files changed (blocked by pre-commit):"
+  echo "⛔ Protected files changed:"
   echo "$CHANGED" | sed 's/^/ - /'
   echo "Set ALLOW_PROTECTED_EDITS=1 to override for this commit."
   exit 1

@@ -1,21 +1,17 @@
 ---
-description: Targeted reminder when guardrails are disabled (non-blocking; protected files only).
+description: Targeted reminder when guardrails are disabled (protected files only).
 globs:
-  # Public UI facade & internal adapters/tokens we consider protected
   - "packages/ui/src/index.ts"
   - "packages/ui/src/adapters/**"
   - "packages/ui/src/tokens/**"
-  # Optional: app vendor area with licensed UI kit
   - "src/vendor/**"
 rules:
-  - If the repository contains a file at ".guardrails/disabled":
-      - Before proposing or applying changes to files matching these globs:
-          - Post this message:
-            "⚠️ Guardrails are DISABLED (.guardrails/disabled). You're editing protected paths.
-             Re-enable with: GUARDRAILS_TOKEN=ok npm run guardrails:enable
-             Proceed anyway?"
-          - WAIT for explicit confirmation. If the user confirms, proceed normally but annotate your plan:
-            "Proceeding with guardrails disabled (per user confirmation)."
+  - If ".guardrails/disabled" exists:
+      - Before changing these files, post:
+        "⚠️ Guardrails are DISABLED (.guardrails/disabled). You're editing protected paths.
+         Re-enable with: GUARDRAILS_TOKEN=ok npm run guardrails:enable
+         Proceed anyway?"
+      - WAIT for explicit confirmation; then annotate plan: "Proceeding with guardrails disabled (per user confirmation)."
   - Never create, delete, or modify ".guardrails/**", "scripts/guardrails-toggle.mjs", or ".husky/*" unless the user explicitly writes: ALLOW TOGGLE CHANGE.
-  - Do not run npm scripts that change the toggle (guardrails:disable|enable) unless the user explicitly writes: ALLOW TOGGLE CHANGE.
-  - This rule is advisory (non-blocking). Do not fail tasks if the user wants to continue with guardrails disabled.
+  - Do not run scripts that change the toggle unless: ALLOW TOGGLE CHANGE.
+  - Advisory only; do not block on user confirmation.

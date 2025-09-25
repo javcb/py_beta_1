@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card } from '@javcb/ui'
+import { AppShell, PageHeader, Button, Card, DataTable, DateField, PdfViewer } from '@javcb/ui'
 
 export default function UIDemoPage() {
   const mockColumns = [
@@ -20,22 +20,20 @@ export default function UIDemoPage() {
   }
 
   return (
-    <div className="p-6 space-y-8">
-      <div className="space-y-4">
-        <h1 className="text-3xl font-bold text-text-primary">UI Library Demo</h1>
-        <p className="text-text-secondary">
-          Testing @javcb/ui workspace integration
-        </p>
-      </div>
+    <AppShell
+      header={<div className="mx-auto max-w-6xl p-4">UI Demo</div>}
+      sidebar={<div className="p-4">Sidebar</div>}
+    >
+      <div className="mx-auto max-w-6xl space-y-4">
+        <PageHeader title="Library Check" subtitle="@javcb/ui wired via workspaces" />
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-text-primary">Buttons</h2>
-        <div className="flex flex-wrap gap-4">
-          <Button>Default Button</Button>
-          <Button variant="secondary">Secondary Button</Button>
-          <Button variant="ghost">Ghost Button</Button>
-          <Button isLoading>Loading Button</Button>
-        </div>
+        <Card className="p-4 space-x-2">
+          <Button>Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="ghost">Ghost</Button>
+        </Card>
       </section>
 
       <section className="space-y-4">
@@ -53,29 +51,20 @@ export default function UIDemoPage() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-text-primary">Simple Table</h2>
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                {mockColumns.map((column) => (
-                  <th key={column.key} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    {column.header}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {mockData.map((item, index) => (
-                <tr key={index}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.id}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.status}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <h2 className="text-2xl font-semibold text-text-primary">DataTable</h2>
+        <DataTable>
+          <div className="p-4">DataTable placeholder - will be replaced with TanStack Table</div>
+        </DataTable>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-text-primary">DateField</h2>
+        <DateField />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-text-primary">PdfViewer</h2>
+        <PdfViewer src="sample.pdf" />
       </section>
 
       <section className="space-y-4">
@@ -99,6 +88,7 @@ export default function UIDemoPage() {
           </p>
         </div>
       </section>
-    </div>
+      </div>
+    </AppShell>
   )
 }

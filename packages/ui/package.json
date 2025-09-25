@@ -1,67 +1,27 @@
 {
   "name": "@javcb/ui",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "src/tokens/tokens.css"],
+  "sideEffects": ["**/*.css"],
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format cjs,esm --sourcemap",
+    "dev": "tsup src/index.ts --watch --dts --format cjs,esm",
+    "clean": "rimraf dist .turbo .cache"
   },
-  "files": [
-    "dist"
-  ],
-  "sideEffects": [
-    "**/*.css"
-  ],
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "tailwindcss": "^3 || ^4"
   },
-  "scripts": {
-    "build": "tsup src/index.ts --dts --format cjs,esm --sourcemap",
-    "dev": "tsup src/index.ts --watch --dts --format cjs,esm",
-    "clean": "rimraf dist .turbo .cache",
-    "pack": "npm pack --silent",
-    "lint": "echo \"(optional) add eslint later\"",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "prepublishOnly": "node ../../scripts/block-publish.mjs"
-  },
   "devDependencies": {
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/react-vite": "^9.1.8",
-    "@storybook/testing-library": "^0.2.1",
-    "@stripe/react-stripe-js": "^2.9.0",
-    "@stripe/stripe-js": "^3.5.0",
-    "@tanstack/react-table": "^8.21.3",
-    "@tremor/react": "^3.18.7",
-    "@types/react": "^18.3.24",
-    "@types/react-dom": "^18.3.7",
-    "autoprefixer": "^10.4.18",
-    "highlight.js": "^11.11.1",
-    "pdfjs-dist": "^5.4.149",
-    "postcss": "^8.4.35",
-    "react-day-picker": "^9.11.0",
-    "react-dropzone": "^14.3.8",
-    "react-pdf": "^10.1.0",
-    "sonner": "^2.0.7",
-    "storybook": "^9.1.8",
-    "tailwindcss": "^3.4.10",
     "tsup": "^8.0.1",
-    "typescript": "^5.5.0"
-  },
-  "dependencies": {
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^2.5.2"
+    "rimraf": "^5.0.5",
+    "typescript": "^5.5.4"
   }
 }

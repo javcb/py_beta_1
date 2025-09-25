@@ -1,85 +1,75 @@
-# Demo Tailwind Plus Starter (Sandbox)
+# Monorepo with Plus-free UI Package
 
-This is a **framework-agnostic starter skeleton** to recreate your app's key screens
-using the **Tailwind Plus** kit with mock data. It is intended to live at:
+This is a **monorepo** with a Plus-free UI package at `packages/ui` and a demo app that consumes it.
 
-```
-apps/demo-tailwind-plus/
-```
-
-It focuses on:
-- **Token bridge**: keep your semantic tokens while using Tailwind Plus.
-- **Adapters**: wrap Tailwind Plus components so your app consumes your API (`Button`, `Card`, etc.).
-- **Patterns**: reusable flows (`DocumentList`).
-- **Pages**: route-level screens mirroring the real app (`/documents`, `/documents/[id]`, `/payments`).
-
-> ⚠️ Note: Import paths for the Tailwind Plus kit vary by vendor. Replace the placeholder imports with the actual ones from your purchase (e.g., `@tailwindplus/ui`, `tailwind-plus`, etc.).
-
-## Suggested repo layout
+## Structure
 
 ```
 packages/
-  ui-library/
-apps/
-  demo-tailwind-plus/   <-- this folder
+  ui/                    # Plus-free UI package (@javcb/ui)
+src/
+  vendor/tailwindplus/   # Tailwind Plus assets (app-only)
+  pages/                 # Demo app pages
 ```
 
-## Setup (Next.js example)
+## Features
 
-1. Copy this folder to `apps/demo-tailwind-plus` inside your monorepo.
-2. In your **Next.js** app at `apps/demo-tailwind-plus`:
-   - Ensure Tailwind and PostCSS are configured.
-   - Add this Tailwind config as your app's `tailwind.config.ts` or merge it with yours.
-   - Add `src/app.css` to your root layout or `_app.tsx`.
+- **Monorepo**: npm workspaces with `@javcb/ui` package
+- **Plus-free UI**: Clean UI components without Tailwind Plus dependencies
+- **Token system**: CSS variables for theming
+- **Guardrails**: Protected files with Cursor rules and Git hooks
+- **CI/CD**: GitHub Actions workflow
 
-3. Replace the placeholder Tailwind Plus preset import in `tailwind.config.ts`:
-   ```ts
-   // import tailwindPlusPreset from "tailwind-plus/preset"
+## Quick Start
+
+1. **Install dependencies:**
+   ```bash
+   npm install
    ```
-   with your actual kit preset export.
 
-4. Run your dev server and visit:
-   - `/documents` (list + states)
-   - `/documents/[id]` (detail)
-   - `/payments`
+2. **Build UI package:**
+   ```bash
+   npm -w @javcb/ui run build
+   ```
 
-## Setup (Vite + React example)
+3. **Start development server:**
+   ```bash
+   npm run dev
+   ```
 
-1. Create a Vite React TS app in `apps/demo-tailwind-plus`.
-2. Install Tailwind & PostCSS; use the provided `tailwind.config.ts` and `src/app.css`.
-3. Use React Router to map routes:
-   - `/documents`, `/documents/:id`, `/payments`.
-4. Import and render `patterns/DocumentList` & pages.
+4. **Visit demo pages:**
+   - `/ui-demo` - Test UI package integration
+   - `/documents` - Document management
+   - `/payments` - Payment processing
 
-## Token bridge
+## Development
 
-We expose semantic CSS variables that map to Tailwind Plus variables. Update the variable names to match your kit.
+- **UI Package**: Located at `packages/ui/` - Plus-free components
+- **Tailwind Plus**: Located at `src/vendor/tailwindplus/` - App-only assets
+- **Build Order**: UI package builds first, then app
+- **Guardrails**: Protected files require explicit approval to edit
 
-## Backporting
+## Protected Files
 
-- Anything you like inside `src/adapters` can be moved into `packages/ui-library/components`.
-- Keep page code importing **your adapters**, not the kit directly.
-
-## Protected Tailwind Plus files
-
-All Tailwind Plus templates/blocks live in `src/plus/` and are protected:
-- Cursor rules block edits unless you explicitly state **ALLOW PROTECTED EDITS** in your request.
-- A Git pre-commit hook blocks commits that touch `src/plus/**` unless you set an override env var.
-- PRs that modify this folder require a CODEOWNER review.
+The following files are protected and require explicit approval to edit:
+- `src/vendor/**` - Tailwind Plus assets
+- `packages/ui/src/tokens/**` - Design tokens
+- `packages/ui/src/adapters/**` - Third-party adapters
+- `packages/ui/src/index.ts` - Main export file
 
 **Override for a single commit**
 
 macOS/Linux:
 ```bash
-ALLOW_PROTECTED_EDITS=1 git commit -m "intentional change in src/plus"
+ALLOW_PROTECTED_EDITS=1 git commit -m "intentional change"
 ```
 
 Windows (PowerShell):
 ```powershell
-$env:ALLOW_PROTECTED_EDITS=1; git commit -m "intentional change in src/plus"
+$env:ALLOW_PROTECTED_EDITS=1; git commit -m "intentional change"
 ```
 
 Windows (Command Prompt):
 ```cmd
-set ALLOW_PROTECTED_EDITS=1 && git commit -m "intentional change in src/plus"
+set ALLOW_PROTECTED_EDITS=1 && git commit -m "intentional change"
 ```

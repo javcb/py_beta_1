@@ -1,5 +1,4 @@
 import * as React from "react";
-import { TremorAdapterCard } from "../../adapters/tremor/Card";
-export type CardProps = React.ComponentProps<typeof TremorAdapterCard>;
-export const Card = React.forwardRef<HTMLDivElement, CardProps>((p, r) => <TremorAdapterCard ref={r} {...p} />);
-Card.displayName = "Card";
+export const Card = ({ className = "", ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={`rounded-card border border-black/10 bg-white shadow-sm ${className}`} {...props} />
+);

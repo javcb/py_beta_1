@@ -4,20 +4,11 @@
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 [ -f "$REPO_ROOT/.guardrails/disabled" ] || exit 0
 
-# list files changed in the last commit
 CHANGED="$(git diff-tree --no-commit-id --name-only -r HEAD 2>/dev/null | tr -d '\r')"
-
-# protected patterns (same set as the Cursor rule)
-PROTECTED_PATTERN='^packages/ui/src/index\.ts|^packages/ui/src/adapters/|^packages/ui/src/tokens/|^src/vendor/'
-
+PROTECTED_PATTERN='^src/vendor/|^packages/ui/src/tokens/|^packages/ui/src/adapters/|^packages/ui/src/index\.ts$'
 echo "$CHANGED" | grep -E "$PROTECTED_PATTERN" >/dev/null 2>&1 || exit 0
-
-# allow users to silence the reminder if needed
-if [ -n "$NO_GUARDRAILS_REMINDER" ]; then
-  exit 0
-fi
+[ -n "$NO_GUARDRAILS_REMINDER" ] && exit 0
 
 echo "⚠️  Guardrails are DISABLED and protected files were changed in the last commit."
-echo "    Re-enable anytime: GUARDRAILS_TOKEN=ok npm run guardrails:enable"
-# non-blocking: always exit 0
+echo "    Re-enable: GUARDRAILS_TOKEN=ok npm run guardrails:enable"
 exit 0
