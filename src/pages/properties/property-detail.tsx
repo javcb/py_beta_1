@@ -1,9 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Card, CardBody, CardHeader } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
-import { Badge } from '../../adapters/Badge'
-import { Avatar } from '../../adapters/Avatar'
+import { Card, CardBody, CardHeader } from '@javcb/ui'
+import { Button } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
+import { Avatar } from '@javcb/ui'
 import { 
   Building2, 
   MapPin, 

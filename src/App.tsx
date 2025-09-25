@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import DocumentsPage from './pages/documents/index'
-import DocumentDetailPage from './pages/documents/[id]'
+import DocumentDetailPage from './pages/documents/document-detail'
 import PaymentsPage from './pages/payments/index'
 
 function App() {
