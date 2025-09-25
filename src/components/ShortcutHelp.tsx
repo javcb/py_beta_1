@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Button } from './adapters/Button'
-import { Modal } from './adapters/Modal'
-import { Card, CardBody, CardHeader } from './adapters/Card'
+import { Button } from '@javcb/ui'
+import { Modal } from '@javcb/ui'
+import { Card } from '@javcb/ui'
 import { 
   Keyboard, 
   Search, 
@@ -65,11 +65,9 @@ export function ShortcutHelp() {
       >
         <div className="space-y-6">
           {shortcuts.map((category, index) => (
-            <Card key={index}>
-              <CardHeader>
+            <Card key={index} className="p-6">
+              <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-text-primary">{category.category}</h3>
-              </CardHeader>
-              <CardBody>
                 <div className="space-y-3">
                   {category.items.map((shortcut, itemIndex) => (
                     <div key={itemIndex} className="flex items-center justify-between">
@@ -87,7 +85,7 @@ export function ShortcutHelp() {
                     </div>
                   ))}
                 </div>
-              </CardBody>
+              </div>
             </Card>
           ))}
           

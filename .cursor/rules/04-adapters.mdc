@@ -1,0 +1,23 @@
+---
+description: Wrapping third-party libraries cleanly.
+globs:
+  - "src/adapters/**"
+---
+
+# Purpose
+- Provide integration code for approved libraries and unify their APIs with our components.
+
+# Allowed Libraries (baseline)
+- radix-ui primitives, @tanstack/react-table, @tremor/react, react-day-picker,
+  react-pdf or react-pdf-viewer, @stripe/react-stripe-js.
+- If another library is required, **propose** it first and explain compatibility.
+
+# Rules
+- Do not export symbols from `adapters/*` outside of `src/components/**`.
+- Keep any external CSS imports **co-located** here and ensure they load **before** Tailwind utilities.
+- Convert library props to **our** props at the component boundary.
+- No global styles; no mutation of vendor kit CSS.
+
+# Examples
+- Date picker logic -> `adapters/day-picker/CalendarBase.tsx`
+- Public component -> `components/forms/DatePicker/DatePicker.tsx` wraps CalendarBase

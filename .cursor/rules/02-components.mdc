@@ -1,0 +1,31 @@
+---
+description: How to create or update public components.
+globs:
+  - "src/components/**"
+---
+
+# Structure & Naming
+- One component per directory with index barrel:
+  - `src/components/<category>/<Name>/`
+    - `Name.tsx`, `types.ts`, `index.ts`, `Name.stories.tsx`, `Name.test.tsx`
+- Categories: primitives, overlays, forms, data, media, feedback.
+
+# API Conventions
+- **Named exports** only; default exports are disallowed.
+- Props are typed; include `className?: string` and forward it.
+- Use `React.forwardRef` for DOM-bearing components.
+- Never leak adapter-specific types in the public API.
+
+# Styling
+- Use Tailwind utilities + our tokens. No inline styles except dynamic calculations.
+- Support `data-[state]` patterns for variants; avoid bespoke BEM.
+- Respect color/radius/spacing tokens; never hardcode hex/rgb.
+
+# A11y & i18n
+- Add `aria-*`, `role`, keyboard support; ensure focus trapping for overlays.
+- Support label/description/id wiring; expose `ariaLabel` where relevant.
+
+# Stories & Tests
+- Each component must ship with a minimal Storybook story:
+  - Mobile view first (e.g., 375px); include dark mode example.
+- For interactive components, add at least one test (Vitest + RTL).

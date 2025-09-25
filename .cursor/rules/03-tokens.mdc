@@ -1,0 +1,19 @@
+---
+description: How to change or add design tokens.
+globs:
+  - "src/tokens/**"
+---
+
+# Token Source of Truth
+- Tokens live as **CSS variables** (`tokens.css`) + Tailwind **preset** (`index.ts`).
+- Only add/modify tokens if required by Tailwind Plus kit parity or a documented design need.
+
+# Edit Process
+1) Update variables in `tokens.css` (light & dark).
+2) Reflect in Tailwind preset `index.ts` (`theme.extend.*`).
+3) Update token docs (storybook `Tokens.stories.mdx`).
+4) Do **not** adjust vendor kit files to "match" tokens; adjust tokens or create wrappers.
+
+# Constraints
+- Use OKLCH where possible.
+- New tokens must be **referenced** by at least one component story before merging.

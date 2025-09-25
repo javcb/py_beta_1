@@ -1,6 +1,12 @@
 #!/usr/bin/env sh
 
-PROTECTED='^src/plus/'
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+if [ -f "$REPO_ROOT/.guardrails/disabled" ]; then
+  echo "⚠️  Guardrails disabled via .guardrails/disabled — skipping protected-file checks."
+  exit 0
+fi
+
+PROTECTED='^(src/vendor/|packages/ui/src/tokens/|packages/ui/src/adapters/|packages/ui/src/index\.ts)'
 CHANGED=$(git diff --cached --name-only | tr -d '\r' | grep -E "$PROTECTED" || true)
 
 if [ -n "$CHANGED" ] && [ -z "$ALLOW_PROTECTED_EDITS" ]; then

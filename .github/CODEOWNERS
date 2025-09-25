@@ -1,2 +1,5 @@
 # Replace @javcb with your GitHub handle or team
-src/plus/**   @javcb
+src/vendor/** @javcb
+packages/ui/src/tokens/** @javcb
+packages/ui/src/adapters/** @javcb
+packages/ui/src/index.ts @javcb

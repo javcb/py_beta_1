@@ -1,0 +1,16 @@
+---
+description: Enforce clean public surface and file layout.
+globs:
+  - "src/**"
+---
+
+# Public Surface
+- Only export from `src/index.ts`.
+- `src/index.ts` may re-export from `src/components/**` and `src/patterns/**` only.
+- Never export anything from `adapters/**`, `internal/**`, or `tokens/**`.
+
+# File Moves/Renames
+- Do not move or rename files unless explicitly requested. If needed, propose a plan.
+
+# Storybook Imports
+- Stories must import from the package root (`@javcb/ui`) to mimic real usage.

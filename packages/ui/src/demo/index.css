@@ -1,0 +1,11 @@
+@import "react-day-picker/dist/style.css";
+@import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+@import "react-pdf/dist/esm/Page/TextLayer.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light dark; }
+html, body, #root { height: 100%; }
+body { @apply bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100; }

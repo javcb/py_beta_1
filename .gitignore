@@ -1,0 +1,11 @@
+.guardrails/disabled
+src/vendor/
+node_modules/
+dist/
+build/
+.turbo/
+.cache/
+**/*.log
+packages/ui/dist/
+packages/ui/.turbo/
+packages/ui/.cache/

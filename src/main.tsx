@@ -17,6 +17,7 @@ import TenantDocumentsPage from "./pages/tenant/documents/index"
 import TenantMaintenancePage from "./pages/tenant/maintenance/index"
 import TenantVehiclesPage from "./pages/tenant/vehicles/index"
 import StyleguidePage from "./pages/styleguide/index"
+import UIDemoPage from "./pages/ui-demo/index"
 import ThemeToggle from "./components/ThemeToggle"
 
 const router = createBrowserRouter([
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
       { path: "/tenant/maintenance", element: <TenantMaintenancePage /> },
       { path: "/tenant/vehicles", element: <TenantVehiclesPage /> },
       { path: "/styleguide", element: <StyleguidePage /> },
+      { path: "/ui-demo", element: <UIDemoPage /> },
     ]
   },
 ])

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useShell } from '../contexts/ShellContext'
 import { GlobalSearch } from './GlobalSearch'
-import { Button } from './adapters/Button'
-import { Avatar } from './adapters/Avatar'
+import { Button } from '@javcb/ui'
+import { Avatar } from '@javcb/ui'
 import { 
   Menu, 
   Bell, 

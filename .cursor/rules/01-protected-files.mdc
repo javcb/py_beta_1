@@ -1,0 +1,22 @@
+---
+description: Protect golden copies, tokens, and public API surfaces.
+globs:
+  - "src/vendor/**"
+  - "src/kits/**"
+  - "src/tokens/**"
+  - "src/index.ts"
+  - "src/adapters/**"
+---
+
+# Protection Rules
+- Do **not** modify, move, or delete files matching these globs.
+- Changes here require the explicit phrase: **ALLOW PROTECTED EDITS** in the user request.
+- If a task necessitates edits, propose:
+  1) Why it's needed
+  2) Exact files and proposed diffs
+  3) Safer alternatives (wrapper/extension) 
+  Then wait for approval.
+
+# Vendor Kits
+- Treat `src/vendor/**` and `src/kits/**` as **golden copies**. Never fork-edit.
+- To customize, create wrappers under `src/components/**` or `src/patterns/**`.

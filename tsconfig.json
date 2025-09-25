@@ -23,9 +23,11 @@
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
-      "@ui": ["src/ui/index.ts"]
+      "@ui": ["src/ui/index.ts"],
+      "@javcb/ui": ["packages/ui/src/index.ts"]
     }
   },
   "include": ["src"],
+  "exclude": ["src/vendor/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

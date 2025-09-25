@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useShell } from '../contexts/ShellContext'
-import { Button } from './adapters/Button'
+import { Button } from '@javcb/ui'
 import { 
   LayoutDashboard, 
   Building2, 
@@ -41,6 +41,7 @@ const tenantNavItems = [
 ]
 
 const sharedNavItems = [
+  { path: '/ui-demo', label: 'UI Demo', icon: Settings },
   { path: '/profile', label: 'Profile', icon: User },
   { path: '/settings', label: 'Settings', icon: Settings },
 ]

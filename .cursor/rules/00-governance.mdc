@@ -1,0 +1,29 @@
+---
+description: High-level governance for the UI repo.
+globs:
+  - "**/*"
+---
+
+# Operating Mode
+- Always show a **plan & diff** before editing. Never auto-apply.
+- Only modify files explicitly referenced by the user or included with @Files/@Folders.
+- If a task requires touching protected paths, STOP and ask for approval (see Protected Files).
+
+# Design Anchor
+- Treat **Tailwind Plus** (and our tokens) as the **canonical visual source**.
+- Do not invent new colors/spacing/radii/shadows. Use tokens and Tailwind utilities.
+
+# Mobile-first
+- Author components **mobile-first**: base styles = mobile; use `sm:`, `md:`, `lg:` progressively to enhance.
+- Avoid fixed widths on core components; prefer fluid layouts and responsive utilities.
+
+# Boundaries
+- App code imports **only from `@javcb/ui`**. Never expose or import from `adapters/*` or `internal/*`.
+- New 3P UI libs must be wrapped in `adapters/*` and re-exposed as **your** components.
+
+# Deliverables per component change
+- Component file(s)
+- Storybook story
+- Types (Props) with JSDoc
+- A11y attributes and keyboard behavior
+- Unit test (or at least interaction test for complex components)

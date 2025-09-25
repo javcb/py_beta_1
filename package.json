@@ -3,22 +3,33 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": ["packages/*"],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build:ui && tsc && vite build",
+    "build:ui": "npm -w @javcb/ui run build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "node scripts/bootstrap-tailwind-plus.mjs",
+    "guardrails:disable": "node scripts/guardrails-toggle.mjs off",
+    "guardrails:enable": "node scripts/guardrails-toggle.mjs on",
+    "guardrails:status": "node scripts/guardrails-toggle.mjs status"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.8",
     "@heroicons/react": "^2.2.0",
+    "@javcb/ui": "workspace:*",
     "clsx": "^2.1.1",
     "lucide-react": "^0.544.0",
     "motion": "^12.23.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Card, CardBody, CardHeader } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
-import { Badge } from '../../adapters/Badge'
+import { Card, Button } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
 import { 
   LayoutDashboard, 
   Building2, 
@@ -86,7 +85,7 @@ export default function DashboardPage() {
           const Icon = kpi.icon
           return (
             <Card key={index} className="hover:shadow-md transition-shadow">
-              <CardBody className="p-6">
+              <div className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-text-secondary">{kpi.title}</p>
@@ -102,7 +101,7 @@ export default function DashboardPage() {
                     <Icon className="h-6 w-6" />
                   </div>
                 </div>
-              </CardBody>
+              </div>
             </Card>
           )
         })}
@@ -112,10 +111,9 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Quick Actions */}
         <Card>
-          <CardHeader>
-            <h3 className="text-lg font-semibold text-text-primary">Quick Actions</h3>
-          </CardHeader>
-          <CardBody className="space-y-3">
+          <div className="p-6">
+            <h3 className="text-lg font-semibold text-text-primary mb-4">Quick Actions</h3>
+            <div className="space-y-3">
             {quickActions.map((action, index) => {
               const Icon = action.icon
               return (
@@ -130,15 +128,14 @@ export default function DashboardPage() {
                 </Button>
               )
             })}
-          </CardBody>
+            </div>
+          </div>
         </Card>
 
         {/* Recent Activity */}
         <Card className="lg:col-span-2">
-          <CardHeader>
-            <h3 className="text-lg font-semibold text-text-primary">Recent Activity</h3>
-          </CardHeader>
-          <CardBody>
+          <div className="p-6">
+            <h3 className="text-lg font-semibold text-text-primary mb-4">Recent Activity</h3>
             <div className="space-y-4">
               {recentActivity.map((activity) => (
                 <div key={activity.id} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-bg-muted">
@@ -166,38 +163,34 @@ export default function DashboardPage() {
                 </div>
               ))}
             </div>
-          </CardBody>
+          </div>
         </Card>
       </div>
 
       {/* Charts Placeholder */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
-          <CardHeader>
-            <h3 className="text-lg font-semibold text-text-primary">Revenue Trend</h3>
-          </CardHeader>
-          <CardBody>
+          <div className="p-6">
+            <h3 className="text-lg font-semibold text-text-primary mb-4">Revenue Trend</h3>
             <div className="h-64 flex items-center justify-center bg-gray-50 rounded-lg">
               <div className="text-center">
                 <BarChart3 className="h-12 w-12 text-gray-400 mx-auto mb-2" />
                 <p className="text-text-secondary">Chart placeholder</p>
               </div>
             </div>
-          </CardBody>
+          </div>
         </Card>
 
         <Card>
-          <CardHeader>
-            <h3 className="text-lg font-semibold text-text-primary">Property Occupancy</h3>
-          </CardHeader>
-          <CardBody>
+          <div className="p-6">
+            <h3 className="text-lg font-semibold text-text-primary mb-4">Property Occupancy</h3>
             <div className="h-64 flex items-center justify-center bg-gray-50 rounded-lg">
               <div className="text-center">
                 <Building2 className="h-12 w-12 text-gray-400 mx-auto mb-2" />
                 <p className="text-text-secondary">Chart placeholder</p>
               </div>
             </div>
-          </CardBody>
+          </div>
         </Card>
       </div>
     </div>

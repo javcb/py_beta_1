@@ -1,0 +1,21 @@
+---
+description: Mobile-first, accessibility, and performance guardrails.
+globs:
+  - "src/components/**"
+  - "src/patterns/**"
+---
+
+# Mobile-first
+- Base styles = mobile; scale up with breakpoints.
+- Avoid horizontal scroll on mobile; prefer stacking + `gap-*`.
+- Touch targets ≥ 40px; avoid tiny hit areas.
+
+# Accessibility
+- All interactive elements reachable by keyboard; visible focus ring using the tokenized ring color.
+- Provide `aria-live` for toasts; set `aria-modal="true"` for dialogs.
+- Use semantic HTML (buttons as <button/>, links as <a/>).
+
+# Performance
+- Keep component bundle small; lazy-load heavy adapters (PDF viewer, charts).
+- Avoid re-renders: memoize where appropriate; keep props serializable.
+- Use `aria-hidden` and `inert` when offscreen overlays mount for perf.
