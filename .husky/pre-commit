@@ -8,7 +8,7 @@ if [ -f "$REPO_ROOT/.guardrails/disabled" ]; then
 fi
 
 # Block edits to protected paths unless ALLOW_PROTECTED_EDITS=1
-PROTECTED='^src/vendor/|^packages/ui/src/tokens/|^packages/ui/src/adapters/|^packages/ui/src/index\.ts$'
+PROTECTED='^src/vendor/|^packages/ui/src/tokens/|^packages/ui/src/adapters/|^packages/ui/src/index\.ts$|^README\.md$'
 CHANGED="$(git diff --cached --name-only | tr -d '\r' | grep -E "$PROTECTED" || true)"
 if [ -n "$CHANGED" ] && [ -z "$ALLOW_PROTECTED_EDITS" ]; then
   echo "⛔ Protected files changed:"

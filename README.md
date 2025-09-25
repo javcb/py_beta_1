@@ -73,3 +73,7 @@ Windows (Command Prompt):
 ```cmd
 set ALLOW_PROTECTED_EDITS=1 && git commit -m "intentional change"
 ```
+
+---
+
+**Docs:** see [/docs/00-overview.md](./docs/00-overview.md) for goals, structure, workflow, and guarrails.

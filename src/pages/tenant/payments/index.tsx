@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Card, CardBody, CardHeader } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
-import { Input } from '../../adapters/Input'
-import { Badge } from '../../adapters/Badge'
-import { Table } from '../../adapters/Table'
-import { Modal } from '../../adapters/Modal'
-import { PaymentWizard } from '../../patterns/modals/PaymentWizard'
-import { AutopayManager } from '../../patterns/modals/AutopayManager'
+import { Card, CardBody, CardHeader } from '@javcb/ui'
+import { Button } from '@javcb/ui'
+import { Input } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
+import { DataTable } from '@javcb/ui'
+import { Modal } from '@javcb/ui'
+// import { PaymentWizard } from '../../patterns/modals/PaymentWizard'
+// import { AutopayManager } from '../../patterns/modals/AutopayManager'
 import { 
   CreditCard, 
   Plus, 
@@ -219,7 +219,7 @@ export default function TenantPaymentsPage() {
             onClick={() => setShowPaymentWizard(true)}
           >
             <Plus className="h-4 w-4" />
-            <span>Pay Now</span>
+            <span>Pay Now (Placeholder)</span>
           </Button>
         </div>
       </div>
@@ -349,27 +349,27 @@ export default function TenantPaymentsPage() {
           </div>
         </CardHeader>
         <CardBody className="p-0">
-          <Table
+          <DataTable
             columns={tableColumns}
             data={filteredPayments}
-            empty="No payments found"
+            emptyState="No payments found"
           />
         </CardBody>
       </Card>
 
       {/* Payment Wizard Modal */}
-      <PaymentWizard
+      {/* <PaymentWizard
         open={showPaymentWizard}
         onClose={() => setShowPaymentWizard(false)}
-      />
+      /> */}
 
       {/* Autopay Manager Modal */}
-      <AutopayManager
+      {/* <AutopayManager
         open={showAutopayManager}
         onClose={() => setShowAutopayManager(false)}
         config={autopayConfig}
         paymentMethods={paymentMethods}
-      />
+      /> */}
     </div>
   )
 }

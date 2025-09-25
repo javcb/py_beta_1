@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
-import { Card, CardBody, CardHeader } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
-import { Input } from '../../adapters/Input'
-import { Badge } from '../../adapters/Badge'
-import { Modal } from '../../adapters/Modal'
+import { Card, CardBody, CardHeader, Button, Input, Badge, Dialog as Modal } from '@javcb/ui'
 import { DocumentViewer } from '../../patterns/modals/DocumentViewer'
 import { FileDropzone } from '../../patterns/FileDropzone'
 import { 

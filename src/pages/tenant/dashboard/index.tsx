@@ -1,7 +1,7 @@
 import React from 'react'
-import { Card, CardBody, CardHeader } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
-import { Badge } from '../../adapters/Badge'
+import { Card, CardBody, CardHeader } from '@javcb/ui'
+import { Button } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
 import { 
   Home, 
   CreditCard, 
@@ -13,7 +13,8 @@ import {
   AlertTriangle,
   CheckCircle,
   Clock,
-  DollarSign
+  DollarSign,
+  Calendar
 } from 'lucide-react'
 
 export default function TenantDashboardPage() {

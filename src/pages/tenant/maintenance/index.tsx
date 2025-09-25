@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Card, CardBody, CardHeader } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
-import { Input } from '../../adapters/Input'
-import { Badge } from '../../adapters/Badge'
-import { Modal } from '../../adapters/Modal'
-import { NewMaintenanceRequest } from '../../patterns/modals/NewMaintenanceRequest'
+import { Card, CardBody, CardHeader } from '@javcb/ui'
+import { Button } from '@javcb/ui'
+import { Input } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
+import { Modal } from '@javcb/ui'
+// import { NewMaintenanceRequest } from '../../patterns/modals/NewMaintenanceRequest'
 import { 
   Wrench, 
   Plus, 
@@ -157,7 +157,7 @@ export default function TenantMaintenancePage() {
           onClick={() => setShowNewRequest(true)}
         >
           <Plus className="h-4 w-4" />
-          <span>New Request</span>
+          <span>New Request (Placeholder)</span>
         </Button>
       </div>
 
@@ -395,10 +395,10 @@ export default function TenantMaintenancePage() {
       </div>
 
       {/* New Request Modal */}
-      <NewMaintenanceRequest
+      {/* <NewMaintenanceRequest
         open={showNewRequest}
         onClose={() => setShowNewRequest(false)}
-      />
+      /> */}
     </div>
   )
 }

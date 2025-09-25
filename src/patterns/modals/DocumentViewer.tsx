@@ -1,7 +1,7 @@
 import React from 'react'
-import { Modal } from '../../adapters/Modal'
-import { Button } from '../../adapters/Button'
-import { Badge } from '../../adapters/Badge'
+import { Modal } from '@javcb/ui'
+import { Button } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
 import { 
   Download, 
   Share, 

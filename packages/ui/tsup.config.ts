@@ -1,8 +1,10 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from 'tsup';
+
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: ['src/index.ts', 'src/compat.ts'],
+  format: ['cjs', 'esm'],
   dts: true,
-  format: ["esm", "cjs"],
   sourcemap: true,
-  clean: true
+  clean: true,
+  external: ['react', 'react-dom', 'tailwindcss'],
 });

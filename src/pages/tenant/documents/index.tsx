@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Card, CardBody, CardHeader } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
-import { Input } from '../../adapters/Input'
-import { Badge } from '../../adapters/Badge'
-import { Modal } from '../../adapters/Modal'
-import { DocumentViewer } from '../../patterns/modals/DocumentViewer'
-import { FileDropzone } from '../../patterns/FileDropzone'
+import { Card, CardBody, CardHeader } from '@javcb/ui'
+import { Button } from '@javcb/ui'
+import { Input } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
+import { Modal } from '@javcb/ui'
+// import { DocumentViewer } from '../../patterns/modals/DocumentViewer'
+// import { FileDropzone } from '../../patterns/FileDropzone'
 import { 
   FileText, 
   Search, 
@@ -21,7 +21,8 @@ import {
   Image,
   File,
   Tag,
-  Calendar
+  Calendar,
+  AlertTriangle
 } from 'lucide-react'
 
 export default function TenantDocumentsPage() {
@@ -397,18 +398,22 @@ export default function TenantDocumentsPage() {
         onClose={() => setShowUpload(false)}
         title="Upload Documents"
       >
-        <FileDropzone onUpload={(files) => {
+        <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+          <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+          <p className="text-gray-500">File upload placeholder</p>
+        </div>
+        {/* <FileDropzone onUpload={(files) => {
           console.log('Uploading files:', files)
           setShowUpload(false)
-        }} />
+        }} /> */}
       </Modal>
 
       {/* Document Viewer Modal */}
-      <DocumentViewer
+      {/* <DocumentViewer
         open={!!selectedDocument}
         document={selectedDocument}
         onClose={() => setSelectedDocument(null)}
-      />
+      /> */}
     </div>
   )
 }

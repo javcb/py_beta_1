@@ -2,8 +2,11 @@
 src/vendor/
 node_modules/
 dist/
+build/
+.turbo/
+.cache/
+**/*.log
 temp_migration/
 packages/ui/dist/
 packages/ui/.turbo/
 packages/ui/.cache/
-**/*.log

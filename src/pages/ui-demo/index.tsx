@@ -52,9 +52,17 @@ export default function UIDemoPage() {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-text-primary">DataTable</h2>
-        <DataTable>
-          <div className="p-4">DataTable placeholder - will be replaced with TanStack Table</div>
-        </DataTable>
+        <DataTable
+          columns={[
+            { key: 'name', header: 'Name' },
+            { key: 'value', header: 'Value' }
+          ]}
+          data={[
+            { name: 'Example 1', value: 'Value 1' },
+            { name: 'Example 2', value: 'Value 2' }
+          ]}
+          emptyState="No data available"
+        />
       </section>
 
       <section className="space-y-4">

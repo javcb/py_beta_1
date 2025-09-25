@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Modal } from '../../adapters/Modal'
-import { Button } from '../../adapters/Button'
-import { Input } from '../../adapters/Input'
-import { Card, CardBody } from '../../adapters/Card'
-import { Badge } from '../../adapters/Badge'
+import { Modal } from '@javcb/ui'
+import { Button } from '@javcb/ui'
+import { Input } from '@javcb/ui'
+import { Card, CardBody } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
 import { 
   CreditCard, 
   DollarSign, 

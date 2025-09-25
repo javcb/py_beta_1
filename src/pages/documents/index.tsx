@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DocumentList } from "../../patterns/DocumentList";
 import { getDocumentById, type Document } from "../../mock/documents";
-import { Modal } from "../../adapters/Modal";
+import { Dialog as Modal } from "@javcb/ui";
 
 export default function DocumentsPage() {
   const [openDoc, setOpenDoc] = React.useState<Document | null>(null);

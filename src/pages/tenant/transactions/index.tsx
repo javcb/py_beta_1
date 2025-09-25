@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Card, CardBody, CardHeader } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
-import { Input } from '../../adapters/Input'
-import { Badge } from '../../adapters/Badge'
-import { Table } from '../../adapters/Table'
+import { Card, CardBody, CardHeader } from '@javcb/ui'
+import { Button } from '@javcb/ui'
+import { Input } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
+import { DataTable } from '@javcb/ui'
 import { 
   Receipt, 
   Search, 
@@ -312,10 +312,10 @@ export default function TenantTransactionsPage() {
           </div>
         </CardHeader>
         <CardBody className="p-0">
-          <Table
+          <DataTable
             columns={tableColumns}
             data={filteredTransactions}
-            empty="No transactions found"
+            emptyState="No transactions found"
           />
         </CardBody>
       </Card>

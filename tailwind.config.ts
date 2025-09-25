@@ -12,6 +12,7 @@ const config: Config = {
     "./node_modules/**/tailwind-plus*/**/*.{js,ts,tsx}",
     "./node_modules/**/@tailwindplus*/**/*.{js,ts,tsx}",
   ],
+  darkMode: ['class'],
   theme: {
     extend: {
       colors: {

@@ -1,0 +1,23 @@
+---
+description: Keep repo goals and quality bars top-of-mind for all edits.
+globs:
+  - "**/*"
+---
+
+# Objectives (Always Respect)
+- Monorepo with **Plus-free** `@javcb/ui` and Vite app.
+- Tailwind Plus assets live **only** under `src/vendor/tailwindplus/**` (app side).
+- App code must import UI **only** from `@javcb/ui` public exports.
+- Adapters under `packages/ui/src/adapters/**` are **internal** (no re-exports).
+- Use Tailwind tokens + utilities for all styling; avoid inline colors.
+
+# Patterns to Prefer
+- Additive changes; do not rename/move protected files.
+- If an edit requires protected paths, STOP and propose a plan.
+- If toggling `PLUS_PUBLISH_PROTECTION=off`, add a clear note in the PR and re-enable after.
+
+# "Good" Quick Check (before proposing diffs)
+- No Plus imports in `packages/ui/src/**`
+- Tailwind content globs include `packages/ui/src/**/*`
+- New components land in `packages/ui/src/components/**` and export from `src/index.ts`
+- App examples go to `/ui-demo` or Storybook (when enabled)

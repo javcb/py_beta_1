@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Card, CardBody, CardHeader } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
-import { Input } from '../../adapters/Input'
-import { Badge } from '../../adapters/Badge'
-import { Table } from '../../adapters/Table'
-import { Modal } from '../../adapters/Modal'
-import { VehicleRegistrationForm } from '../../patterns/modals/VehicleRegistrationForm'
+import { Card, CardBody, CardHeader } from '@javcb/ui'
+import { Button } from '@javcb/ui'
+import { Input } from '@javcb/ui'
+import { Badge } from '@javcb/ui'
+import { DataTable } from '@javcb/ui'
+import { Modal } from '@javcb/ui'
+// import { VehicleRegistrationForm } from '../../patterns/modals/VehicleRegistrationForm'
 import { 
   Car, 
   Plus, 
@@ -198,7 +198,7 @@ export default function TenantVehiclesPage() {
           onClick={() => setShowRegistrationForm(true)}
         >
           <Plus className="h-4 w-4" />
-          <span>Register Vehicle</span>
+          <span>Register Vehicle (Placeholder)</span>
         </Button>
       </div>
 
@@ -316,10 +316,10 @@ export default function TenantVehiclesPage() {
           </div>
         </CardHeader>
         <CardBody className="p-0">
-          <Table
+          <DataTable
             columns={tableColumns}
             data={filteredVehicles}
-            empty="No vehicles found"
+            emptyState="No vehicles found"
           />
         </CardBody>
       </Card>
@@ -394,11 +394,11 @@ export default function TenantVehiclesPage() {
       </div>
 
       {/* Vehicle Registration Modal */}
-      <VehicleRegistrationForm
+      {/* <VehicleRegistrationForm
         open={showRegistrationForm}
         onClose={handleCloseForm}
         vehicle={editingVehicle}
-      />
+      /> */}
     </div>
   )
 }

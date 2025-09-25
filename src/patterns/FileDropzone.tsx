@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
-import { Card, CardBody } from '../../adapters/Card'
-import { Button } from '../../adapters/Button'
+import { Card, CardBody } from '@javcb/ui'
+import { Button } from '@javcb/ui'
 import { 
   Upload, 
   FileText, 
